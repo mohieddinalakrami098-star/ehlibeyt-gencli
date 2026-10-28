@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#12372d">
+  <meta name="description" content="Ehlibeyt Gençlik Merkezi: Sohbet, eğitim, etüt, teknoloji imkanları ve etkinliklerle gençlerimizle birlikte.">
+  <title>Ehlibeyt Gençlik Merkezi</title>
+  <style>
+    :root{--green:#12372d;--green2:#1d5141;--mint:#eaf2ec;--gold:#d8b66c;--ink:#17251f;--muted:#617068;--white:#fff;--line:#dce6de}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fbfcfa;line-height:1.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(18,55,45,.97);color:white;border-bottom:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
+    .nav{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.04em}.logo{width:42px;height:42px;border:1px solid var(--gold);border-radius:14px;display:grid;place-items:center;color:var(--gold);font-size:22px}
+    .brand small{display:block;font-size:10px;letter-spacing:.15em;color:#cbd9d0;font-weight:600}.links{display:flex;gap:22px;align-items:center;font-size:14px;color:#e4eee7}.links a:hover{color:var(--gold)}.menu{display:none;background:transparent;color:white;border:1px solid #547267;border-radius:10px;padding:8px 12px;font-size:20px}
+    .hero{background:radial-gradient(ellipse at 80% 20%,#2b6550 0,transparent 38%),linear-gradient(135deg,#102d25,#174738);color:white;overflow:hidden;position:relative}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:44px;padding:84px 0 90px}.eyebrow{display:inline-flex;gap:8px;align-items:center;color:var(--gold);font-weight:750;font-size:12px;letter-spacing:.16em;text-transform:uppercase}.eyebrow:before{content:"";width:25px;height:2px;background:var(--gold)}
+    h1{font-size:clamp(42px,6vw,72px);line-height:1.02;letter-spacing:-.045em;margin:18px 0}.hero p{max-width:560px;color:#dce9e0;font-size:18px}.actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;border-radius:12px;padding:13px 18px;font-weight:750;font-size:14px;transition:.2s;border:1px solid transparent}.btn:hover{transform:translateY(-2px)}.primary{background:var(--gold);color:#172b21}.outline{border-color:#779688;color:white}.darkbtn{background:var(--green);color:white}.lightbtn{background:white;border-color:var(--line);color:var(--green)}
+    
+    .hero-art-img{min-height:340px;border:1px solid rgba(255,255,255,.18);border-radius:28px;overflow:hidden;position:relative;box-shadow:0 12px 32px rgba(0,0,0,0.2)}
+    .hero-art-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .art-caption{position:absolute;bottom:0;left:0;right:0;padding:15px;background:linear-gradient(transparent, rgba(16,45,37,0.9));text-align:center;color:#d7e5dc;font-size:13px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
+    
+    .strip{background:#f0f5f0;border-bottom:1px solid var(--line)}.strip-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:24px 0}.strip-item{display:flex;gap:12px;align-items:center}.strip-icon{width:42px;height:42px;border-radius:13px;background:white;display:grid;place-items:center;color:var(--green);font-size:20px;border:1px solid var(--line)}.strip-item strong{display:block;font-size:14px}.strip-item span{font-size:12px;color:var(--muted)}
+    section{padding:78px 0}.section-head{max-width:650px;margin-bottom:32px}.kicker{color:var(--green2);font-weight:800;text-transform:uppercase;font-size:11px;letter-spacing:.16em}.section-head h2{font-size:clamp(30px,4vw,45px);letter-spacing:-.035em;line-height:1.1;margin:10px 0 14px}.section-head p{color:var(--muted);margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:white;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 8px 28px rgba(23,50,36,.035)}.card-icon{width:48px;height:48px;display:grid;place-items:center;background:var(--mint);border-radius:15px;font-size:23px}.card h3{margin:17px 0 7px;font-size:19px}.card p{margin:0;color:var(--muted);font-size:14px}.card .more{display:inline-block;margin-top:18px;color:var(--green2);font-weight:800;font-size:13px}
+    
+    .about{background:var(--mint)}.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+    .about-visual-img{min-height:330px;border-radius:24px;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,0.08);position:relative}
+    .about-visual-img img{width:100%;height:100%;object-fit:cover;display:block}
+    .about-copy h2{font-size:clamp(30px,4vw,44px);line-height:1.1;letter-spacing:-.035em;margin:10px 0 16px}.about-copy p{color:#4e6157}.checklist{list-style:none;padding:0;margin:20px 0;display:grid;gap:10px}.checklist li:before{content:"✓";color:var(--green2);font-weight:900;margin-right:10px}
+    
+    .events{background:white}.event-card{display:flex;gap:18px;align-items:flex-start}.event-date{min-width:58px;padding:10px 8px;background:var(--mint);border-radius:13px;text-align:center;color:var(--green);font-weight:800;font-size:11px}.event-date b{display:block;font-size:23px;line-height:1.1}.event-card h3{margin:0 0 5px;font-size:17px}.event-card p{margin:0;color:var(--muted);font-size:13px}.tag{display:inline-block;margin-top:9px;padding:4px 8px;border-radius:100px;background:#f6f0df;color:#755c22;font-size:10px;font-weight:800}
+    .media{background:#f6f8f5}.media-panel{background:var(--green);border-radius:24px;padding:34px;color:white;display:flex;justify-content:space-between;align-items:center;gap:25px}.media-panel h2{margin:0 0 8px;font-size:clamp(26px,3vw,36px);line-height:1.1}.media-panel p{margin:0;color:#d4e2d9;max-width:570px;font-size:14px}
+    .support-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}.support-card{border-radius:22px;padding:30px;border:1px solid var(--line);background:white}.support-card.featured{background:#f4efdf;border-color:#e8d9b3}.support-card h3{font-size:24px;margin:14px 0 8px}.support-card p{color:var(--muted);font-size:14px}.support-card ul{padding-left:20px;color:var(--muted);font-size:14px}
+    .contact{background:#102d25;color:white}.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}.contact h2{font-size:clamp(32px,4vw,46px);line-height:1.05;margin:12px 0}.contact p{color:#d1e0d6}.contact-box{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);padding:24px;border-radius:20px}.contact-line{padding:13px 0;border-bottom:1px solid rgba(255,255,255,.13)}.contact-line:last-child{border:0}.contact-line small{display:block;color:#b9cec2;font-size:11px;text-transform:uppercase;letter-spacing:.1em}.contact-line strong,.contact-line a{display:block;margin-top:3px;color:white}
+    footer{background:#0b211b;color:#b8c9bf;padding:22px 0;font-size:12px}.footer-row{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap}
+    @media(max-width:800px){.links{display:none;position:absolute;top:76px;left:0;right:0;background:var(--green);padding:18px 24px 24px;flex-direction:column;align-items:flex-start}.links.open{display:flex}.menu{display:block}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-grid{padding:58px 0 62px;gap:28px}.hero-art-img,.about-visual-img{min-height:260px}.strip-grid{grid-template-columns:1fr;gap:14px}.cards{grid-template-columns:1fr 1fr}.media-panel{align-items:flex-start;flex-direction:column}.support-grid{grid-template-columns:1fr}section{padding:58px 0}}
+    @media(max-width:520px){.wrap{width:min(100% - 28px,1120px)}.cards{grid-template-columns:1fr}.hero p{font-size:16px}.card{padding:21px}.media-panel{padding:25px}.nav{min-height:68px}.links{top:68px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#anasayfa" aria-label="Ehlibeyt Gençlik ana sayfa">
+      <span class="logo">✦</span><span>EHLİBEYT GENÇLİK<small>BİRLİKTE ÖĞREN · BİRLİKTE GELİŞ</small></span>
+    </a>
+    <button class="menu" id="menu" aria-label="Menüyü aç" aria-expanded="false">☰</button>
+    <nav class="links" id="links">
+      <a href="#hakkimizda">Merkezimiz</a><a href="#etkinlikler">Etkinlikler</a><a href="#medya">Videolar</a><a href="#destek">Destek ol</a><a href="#iletisim">İletişim</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="anasayfa" style="padding:0">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow">Ehlibeyt Gençlik Merkezi</span>
+        <h1>Gençliğin<br>güzel bir buluşma noktası.</h1>
+        <p>Sohbet, eğitim, etüt ve teknoloji imkanlarıyla birlikte gelişmek için buradayız. Gel, tanışalım ve geleceği birlikte inşa edelim.</p>
+        <div class="actions">
+          <a class="btn primary" href="#etkinlikler">Etkinlikleri keşfet ↗</a>
+          <a class="btn outline" href="#iletisim">Bize ulaş</a>
+        </div>
+      </div>
+      <div class="hero-art-img">
+        <img src="gorsellllerı.jpg" alt="Ehlibeyt Gençlik Merkezi Bilgisayar Odası">
+        <div class="art-caption">Donanımlı Bilgisayar Lab & Çalışma Alanı</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="strip">
+    <div class="wrap strip-grid">
+      <div class="strip-item"><span class="strip-icon">📖</span><div><strong>Birlikte öğreniyoruz</strong><span>Ders, etüt ve rehberlik desteği</span></div></div>
+      <div class="strip-item"><span class="strip-icon">💻</span><div><strong>Teknoloji & İnternet</strong><span>Modern bilgisayarlarla araştırma imkanı</span></div></div>
+      <div class="strip-item"><span class="strip-icon">🤝</span><div><strong>Sosyal Gelişim</strong><span>Etkinlikler, sohbetler ve dostluk</span></div></div>
+    </div>
+  </div>
+
+  <section id="hakkimizda">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">Merkezimiz</span><h2>Gençler için, gençlerle birlikte.</h2><p>Ehlibeyt Gençlik Merkezi; gençlerimizin hem akademik hem de kişisel gelişimlerine katkı sağlamak amacıyla kurulmuş güvenli, samimi ve donanımlı bir alandır.</p></div>
+      <div class="cards">
+        <article class="card"><div class="card-icon">📚</div><h3>Ders ve Etüt Desteği</h3><p>Ödevlerinize yardımcı oluyor, sınavlara hazırlık sürecinde yanınızda oluyoruz.</p><a class="more" href="#etkinlikler">Detayları gör ↗</a></article>
+        <article class="card"><div class="card-icon">💻</div><h3>Bilgisayar & Teknoloji</h3><p>Modern bilgisayarlarla araştırma, proje ve dijital çalışmalarınızı yapabilirsiniz.</p><a class="more" href="#iletisim">Merkeze gel ↗</a></article>
+        <article class="card"><div class="card-icon">🌱</div><h3>Dini & Manevi Eğitimler</h3><p>Değerlerimizi öğrenip, sosyal ve kültürel etkinliklerle kendinizi geliştirebilirsiniz.</p><a class="more" href="#medya">Bizi takip et ↗</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="wrap about-grid">
+      <div class="about-visual-img">
+        <img src="gorsellli.jpg" alt="Ehlibeyt Gençlik Merkezi Derslik">
+      </div>
+      <div class="about-copy"><span class="kicker">Neden Ehlibeyt Gençlik?</span><h2>Nitelikli eğitim, güvenli ortam, sosyal gelişim.</h2><p>Güçlü bir gelecek için hazırlanan gençlerimize modern ve ferah sınıflarımızda en uygun çalışma atmosferini sunuyoruz.</p><ul class="checklist"><li>Modern ve ferah sınıflar</li><li>Güler yüzlü, ilgili hocalar</li><li>Sessiz ders çalışma ve etüt salonları</li><li>Bilgisayar odası ve hızlı internet imkanı</li><li>Sosyal, sportif ve kültürel etkinlik alanları</li></ul><a class="btn darkbtn" href="#iletisim">Aramıza Katıl ↗</a></div>
+    </div>
+  </section>
+
+  <section class="events" id="etkinlikler">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">Takvim</span><h2>Ehlibeyt Etkinlikler ve Programlar</h2><p>Merkezimizde düzenli olarak gerçekleştirilen faaliyetler ve gençlik buluşmaları.</p></div>
+      <div class="cards">
+        <article class="card event-card"><div class="event-date">PROGRAM<b>01</b></div><div><h3>Gençlik Sohbetleri</h3><p>Birlikte düşünmek, öğrenmek ve değerlerimiz üzerine konuşmak için buluşmalar.</p><span class="tag">Düzenli Program</span></div></article>
+        <article class="card event-card"><div class="event-date">PROGRAM<b>02</b></div><div><h3>Ders & Sınav Hazırlık Etütleri</h3><p>Hocalarımız eşliğinde ders çalışma, ödev tamamlama ve sınav etütleri.</p><span class="tag">Hafta İçi & Hafta Sonu</span></div></article>
+        <article class="card event-card"><div class="event-date">PROGRAM<b>03</b></div><div><h3>Kültürel & Sosyal Etkinlikler</h3><p>Geziler, turnuvalar ve sosyal sorumluluk projeleri.</p><span class="tag">Dönemsel Etkinlikler</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="media" id="medya">
+    <div class="wrap">
+      <div class="media-panel">
+        <div><span class="eyebrow">Sosyal Medyada Biz</span><h2>Bizi Instagram'da Takip Edin</h2><p>Etkinlik duyurularımız, fotoğraflarımız ve haberlerimiz için Instagram sayfamızı ziyaret edebilirsiniz.</p></div>
+        <a class="btn primary" id="instagramBtn" href="https://www.instagram.com/ehlibeyt.genclikmerkezi" target="_blank" rel="noopener">@ehlibeyt.genclikmerkezi ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="destek">
+    <div class="wrap">
+      <div class="section-head"><span class="kicker">Katkı ve Gönüllülük</span><h2>İyi insan, iyi toplum, güçlü gelecek...</h2><p>Geleceğimizin teminatı gençlerimize destek olmak için gönüllü olabilir veya merkezimizle iletişime geçebilirsiniz.</p></div>
+      <div class="support-grid">
+        <article class="support-card featured"><div class="card-icon">🤲</div><h3>Gönüllü Ol</h3><p>Etkinliklerde görev almak, derslerde gençlere rehberlik etmek veya projeler üretmek için kapımız herkese açık.</p><a class="btn darkbtn" href="#iletisim">Bize Ulaşın ↗</a></article>
+        <article class="support-card"><div class="card-icon">🌱</div><h3>Sen de Aramıza Katıl!</h3><p>Kendini geliştirmek isteyen tüm gençlerimizi merkezimize bekliyoruz. Öğren, geliş ve paylaş!</p><a class="btn lightbtn" href="#iletisim">İletişime Geç ↗</a></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="iletisim">
+    <div class="wrap contact-grid">
+      <div><span class="eyebrow">İletişim</span><h2>Bize Ulaşın &<br>Ziyaret Edin</h2><p>Sorularınız, kayıt bilgisi veya ziyaretleriniz için bizimle e-posta ya da sosyal medya üzerinden iletişim kurabilirsiniz.</p><div class="actions"><a class="btn primary" id="contactInstagram" href="https://www.instagram.com/ehlibeyt.genclikmerkezi" target="_blank" rel="noopener">Instagram'dan Yazın ↗</a></div></div>
+      <div class="contact-box">
+        <div class="contact-line"><small>Merkez Adı</small><strong>Ehlibeyt Gençlik Merkezi</strong></div>
+        <div class="contact-line"><small>Adres</small><strong>Karayolları Mahallesi, 558. Sokak, No: 7/A Gaziosmanpaşa / İstanbul</strong></div>
+        <div class="contact-line"><small>E-Posta</small><a href="mailto:Ehlibeyt.genclikmerkezi@gmail.com">Ehlibeyt.genclikmerkezi@gmail.com</a></div>
+        <div class="contact-line"><small>Sosyal Medya</small><a href="https://www.instagram.com/ehlibeyt.genclikmerkezi" target="_blank" rel="noopener">@ehlibeyt.genclikmerkezi</a></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap footer-row"><span>© <span id="year"></span> Ehlibeyt Gençlik Merkezi</span><span>Öğren · Geliş · Paylaş</span></div></footer>
+
+<script>
+  const menu = document.getElementById('menu');
+  const links = document.getElementById('links');
+  menu.addEventListener('click', () => {
+    const open = links.classList.toggle('open');
+    menu.setAttribute('aria-expanded', String(open));
+    menu.textContent = open ? '✕' : '☰';
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open'); menu.setAttribute('aria-expanded','false'); menu.textContent='☰';
+  }));
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
